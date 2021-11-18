@@ -1,0 +1,34 @@
+@startuml
+class InventoryManagementApplication{
++main()
++start()
+}
+class AddItemController{
++ addClicked(): void
++ cancelClicked(): void
++ checkItem(): boolean
+- cancel(): void
+}
+class EdititemController{
++ editClicked(): void
++ cancelClicked(): void
++ checkEdit(): boolean
+- cancel(): void
+}
+class InventoryController{
++ addItemClicked(): void
++ closeClicked(): void
++ editItemClicked(): void
++ removeItemClicked(): void
++ saveClicked(): void
+- cancel(): void
+}
+class Inventory{
++ getName(): String
++ getSerial(): String
++ getValue(): String
++ setSerial(): void
++ setName(): void
++ setValue(): void
+}
+@enduml
