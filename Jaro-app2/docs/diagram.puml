@@ -24,11 +24,15 @@ class InventoryController{
 - cancel(): void
 }
 class Inventory{
+ - value: Double
+ - serialNumber: String
+ - name: String
+ + Inventory(String, String, Double)
 + getName(): String
 + getSerial(): String
 + getValue(): String
-+ setSerial(): void
-+ setName(): void
-+ setValue(): void
++ setSerial(String): void
++ setName(String): void
++ setValue(double): void
 }
 @enduml
