@@ -49,4 +49,11 @@ class InventoryModel{
     + setEditIndex(int): void
     + getEditIndex(): int
 }
+class SceneManager {
+    - scenes: Map<String, Scene>
+    + load(): void
+    + getScene(String): Scene
+    - loadScene(String, FXMLLoader): void
+}
+
 @enduml
