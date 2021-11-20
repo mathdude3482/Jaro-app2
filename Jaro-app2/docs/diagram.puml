@@ -40,4 +40,13 @@ class InventoryObject{
 + getItems(List<Inventory>): List
 + setItems(List<Inventory>): void
 }
+class InventoryModel{
+    - items: ObservableList<InventoryItem>
+    - editIndex: int
+    + InventoryModel()
+    + setList(List<InventoryItem>): void
+    + getItem(): ObservableList<InventoryItem>
+    + setEditIndex(int): void
+    + getEditIndex(): int
+}
 @enduml
