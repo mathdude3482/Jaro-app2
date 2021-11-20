@@ -35,4 +35,9 @@ class Inventory{
 + setName(String): void
 + setValue(double): void
 }
+class InventoryObject{
+- items: List<Inventory>
++ getItems(List<Inventory>): List
++ setItems(List<Inventory>): void
+}
 @enduml
