@@ -14,25 +14,18 @@ public class SceneManager {
     private final Map<String, Scene> scenes = new HashMap<>();
     public void load() {
         //load the scene.
-        //edit the constructors.
         InventoryModel inventoryModel = new InventoryModel();
-        InventoryController inventoryController = new InventoryController();
+        InventoryController inventoryController = new InventoryController(inventoryModel, this);
         AddItemController addItemController = new AddItemController(inventoryModel, this);
         EditItemController editItemController = new EditItemController(inventoryModel, this);
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("InventoryController.fxml"));
         loader.setController(inventoryController);
-
         loadScene("InventoryController", loader);
-
         loader = new FXMLLoader(getClass().getResource("AddItemController.fxml"));
         loader.setController(addItemController);
-
         loadScene("AddItemController", loader);
-
         loader = new FXMLLoader(getClass().getResource("EditItemController.fxml"));
         loader.setController(editItemController);
-
         loadScene("EditItemController", loader);
     }
 

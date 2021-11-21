@@ -5,7 +5,6 @@
 package baseline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -63,7 +62,8 @@ public class AddItemController {
         }
         //check if the serial number is valid.
         if (!validator.isValidSerial(serialDisplay.getText())) {
-            showError("An item's serial number must be unique and in the format XXXXXXXXXX and consist of only letters and digits.");
+            showError("An item's serial number must be unique and in the format " + "\n" +
+                    "X-XXX-XXX-XXX and consist of only letters and digits.");
             return false;
         }
         //check if the value is valid.

@@ -8,6 +8,7 @@ public class Inventory {
     private String serialNumber;
     private double value;
 
+
     public Inventory(String name, String serialNumber, double value) {
         this.name = name;
         this.serialNumber = serialNumber;

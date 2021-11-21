@@ -43,12 +43,28 @@ class EdititemController{
 }
 
 class InventoryController{
-+ addItemClicked(): void
-+ closeClicked(): void
-+ editItemClicked(): void
-+ removeItemClicked(): void
-+ saveClicked(): void
-- cancel(): void
+ + gridPane: GridPane
+    + itemTable: TableView
+    + valueDisplay: TableColumn
+    + serialDisplay: TableColumn
+    + nameDisplay: TableColumn
+    + searchField: TextField
+    - inventoryModel: InventoryModel
+    - sceneManager: SceneManager
+
+    + InventoryController(InventoryModel, SceneManager)
+    + initialize()
+    + addItemClicked(MouseEvent)
+    + removeItemClicked(MouseEvent)
+    + editItemClicked(MouseEvent)
+    + saveClicked(ActionEvent)
+    + loadClicked(ActionEvent)
+    + closeClicked(ActionEvent)
+    + removeItem(Integer)
+    - openNewController(String, String)
+    - openSaveFileChooser(): File
+    - openLoadFileChooser(): File
+    - close()
 }
 class Inventory{
  - value: Double
