@@ -3,7 +3,7 @@
 ## Description
 
 This inventory manager is a GUI-based application which allows for the management 
-of at least 100 inventory items consisting of a monetary value in US dollars, a 
+of at least 1024 inventory items consisting of a monetary value in US dollars, a 
 unique serial number in the format of A-XXX-XXX-XXX, where A must be a letter and X can be a letter or a 
 digit, as well as an item name of a length between 2 and 256 characters in length (inclusive).
 
