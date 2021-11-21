@@ -34,11 +34,11 @@ public class Serialization {
     public void saveTSV(String path) {
         //this method will allow the user to save as a TSV file.
         try (Formatter formatter = new Formatter(path)) {
-            for (int i = 0; i < myInventory.getItem().size(); i++) {
-                String serializedName = myInventory.getItem().get(i).getName().
+            for (int i = 0; i < myInventory.getItems().size(); i++) {
+                String serializedName = myInventory.getItems().get(i).getName().
                         replace(" ", ".");
-                String output = myInventory.getItem().get(i).getValue() + "\t" +
-                        myInventory.getItem().get(i).getSerial() + "\t" +
+                String output = myInventory.getItems().get(i).getValue() + "\t" +
+                        myInventory.getItems().get(i).getSerialNumber() + "\t" +
                         serializedName + "\n";
                 formatter.format(output);
             }
@@ -53,10 +53,10 @@ public class Serialization {
         try (Formatter formatter = new Formatter(path)) {
             formatter.format("<table>\n");
             formatter.format("<tr><th> Value </th><th> Serial Number </th><th> Name </th></tr>\n");
-            for (int i = 0; i < myInventory.getItem().size(); i++) {
-                String serializedName = myInventory.getItem().get(i).getName().replace(" ", ".");
-                String output = "<tr><th> " + myInventory.getItem().get(i).getValue() + " </th><th> " +
-                        myInventory.getItem().get(i).getSerial() + " </th><th> " +
+            for (int i = 0; i < myInventory.getItems().size(); i++) {
+                String serializedName = myInventory.getItems().get(i).getName().replace(" ", ".");
+                String output = "<tr><th> " + myInventory.getItems().get(i).getValue() + " </th><th> " +
+                        myInventory.getItems().get(i).getSerialNumber() + " </th><th> " +
                         serializedName + " </th></tr>\n";
                 formatter.format(output);
             }
@@ -70,8 +70,8 @@ public class Serialization {
         //allow the user to save as a JSON file.
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         InventoryObject inventoryObject = new InventoryObject();
-        for (int i = 0; i < myInventory.getItem().size(); i++) {
-            inventoryObject.getItems().add(myInventory.getItem().get(i));
+        for (int i = 0; i < myInventory.getItems().size(); i++) {
+            inventoryObject.getItems().add(myInventory.getItems().get(i));
         }
         try (FileWriter fw = new FileWriter(path)) {
             gson.toJson(inventoryObject, fw);
@@ -94,14 +94,14 @@ public class Serialization {
 
     public void loadTSV(File toLoad) {
         //allow the user to load a TSV file.
-        List<Inventory> myList = new ArrayList<>();
+        List<InventoryItem> myList = new ArrayList<>();
         try (Scanner scanner = new Scanner(toLoad)) {
             while (scanner.hasNext()) {
                 double value = Double.parseDouble(scanner.next());
                 String serialNumber = scanner.next();
                 String serializedName = scanner.next();
                 String name = serializedName.replace(".", " ");
-                Inventory newItem = new Inventory(name, serialNumber, value);
+                InventoryItem newItem = new InventoryItem(name, serialNumber, value);
                 myList.add(newItem);
             }
         } catch (NumberFormatException | NullPointerException | FileNotFoundException e) {
@@ -113,7 +113,7 @@ public class Serialization {
 
     public void loadHTML(File toLoad) {
         //allow the user to load in a HTML file.
-        List<Inventory> list = new ArrayList<>();
+        List<InventoryItem> list = new ArrayList<>();
         try (Scanner scanner = new Scanner(toLoad)) {
             scanner.nextLine();
             scanner.nextLine();
@@ -128,7 +128,7 @@ public class Serialization {
                     scanner.next();
                     String name = serializedName.replace(".", " ");
                     if (value != 0 && serialNumber != null && name != null) {
-                        Inventory newItem = new Inventory(name, serialNumber, value);
+                        InventoryItem newItem = new InventoryItem(name, serialNumber, value);
                         list.add(newItem);
                     }
                 }

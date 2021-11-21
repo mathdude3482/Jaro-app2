@@ -9,7 +9,7 @@ import java.util.List;
 
 public class InventoryModel {
     //create a observable list to keep track of changes.
-    private ObservableList<Inventory> items;
+    private ObservableList<InventoryItem> items;
     private int editIndex;
 
     public InventoryModel() {
@@ -18,14 +18,14 @@ public class InventoryModel {
         editIndex = -1;
     }
 
-    public void setList(List<Inventory> list) {
+    public void setList(List<InventoryItem> list) {
         //clear whatever what was previously in the list of items.
         items.clear();
         //add the list to the observable ArrayList item.
         items.addAll(list);
     }
 
-    public ObservableList<Inventory> getItem() {
+    public ObservableList<InventoryItem> getItems() {
         //get the list of items.
         return items;
     }

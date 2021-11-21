@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryObject {
-    private List<Inventory> items = new ArrayList<>();
+    private List<InventoryItem> items = new ArrayList<>();
 
     //get the list of items.
-    public List<Inventory> getItems() {
+    public List<InventoryItem> getItems() {
         return items;
     }
     //set the list of items.
-    public void setItems(List<Inventory> items) {
+    public void setItems(List<InventoryItem> items) {
         this.items = items;
     }
 }

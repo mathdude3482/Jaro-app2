@@ -14,7 +14,7 @@ class AddItemControllerTest {
         AddItemController aic = new AddItemController(im, sm);
         aic.addItem("Test", "XXXXXXXXXX", 123.45);
         String expected = "Test";
-        String actual = im.getItem().get(0).getName();
+        String actual = im.getItems().get(0).getName();
         assertEquals(expected, actual);
     }
 
@@ -25,7 +25,7 @@ class AddItemControllerTest {
         AddItemController aic = new AddItemController(im, sm);
         aic.addItem("Test", "XXXXXXXXXX", 123.45);
         String expected = "XXXXXXXXXX";
-        String actual = im.getItem().get(0).getSerial();
+        String actual = im.getItems().get(0).getSerialNumber();
         assertEquals(expected, actual);
     }
 
@@ -39,7 +39,7 @@ class AddItemControllerTest {
         aic.addItem("Test", "XXXXXXXXXX", 123.45);
 
         double expected = 123.45;
-        double actual = im.getItem().get(0).getValue();
+        double actual = im.getItems().get(0).getValue();
 
         assertEquals(expected, actual);
     }

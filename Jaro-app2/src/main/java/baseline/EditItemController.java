@@ -51,15 +51,15 @@ public class EditItemController {
     public void editItem(String name, String serialNumber, String value) {
         //edit the information based on user input if the user did not leave anything blank.
         if (!name.isEmpty()) {
-            myInventory.getItem().get(myInventory.getEditIndex()).setName(name);
+            myInventory.getItems().get(myInventory.getEditIndex()).setName(name);
         }
 
         if (!serialNumber.isEmpty()) {
-            myInventory.getItem().get(myInventory.getEditIndex()).setSerial(serialNumber);
+            myInventory.getItems().get(myInventory.getEditIndex()).setSerial(serialNumber);
         }
 
         if (!value.isEmpty()) {
-            myInventory.getItem().get(myInventory.getEditIndex()).setValue(Double.parseDouble(value));
+            myInventory.getItems().get(myInventory.getEditIndex()).setValue(Double.parseDouble(value));
         }
     }
     public boolean checkEdit(String name, String serialNumber, String value){
@@ -75,7 +75,8 @@ public class EditItemController {
         }
         if (!serialNumber.isEmpty()) {
             if (!validator.isValidSerial(serialNumber)) {
-                showError("An item's serial number must be unique and in the format XXXXXXXXXX and consist of only letters and digits.");
+                showError("An item's serial number must be unique and in the format " + "\n"
+                        + "X-XXX-XXX-XXX and consist of only letters and digits.");
                 return false;
             }
         }

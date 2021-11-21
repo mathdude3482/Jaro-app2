@@ -21,7 +21,7 @@ class EditItemControllerTest {
         EditItemController editItemController = new EditItemController(inventoryModel, sceneManager);
         editItemController.editItem("Change", "XXXXXLLLLL", "987.65");
 
-        String newName = inventoryModel.getItem().get(0).getName();
+        String newName = inventoryModel.getItems().get(0).getName();
 
         assertEquals("Change", newName);
     }
@@ -39,7 +39,7 @@ class EditItemControllerTest {
         EditItemController editItemController = new EditItemController(inventoryModel, sceneManager);
         editItemController.editItem("Change", "XXXXXLLLLL", "987.65");
 
-        String newSerial = inventoryModel.getItem().get(0).getSerial();
+        String newSerial = inventoryModel.getItems().get(0).getSerialNumber();
 
         assertEquals("XXXXXLLLLL", newSerial);
     }
@@ -57,7 +57,7 @@ class EditItemControllerTest {
         EditItemController editItemController = new EditItemController(inventoryModel, sceneManager);
         editItemController.editItem("Change", "XXXXXLLLLL", "987.65");
 
-        double newValue = inventoryModel.getItem().get(0).getValue();
+        double newValue = inventoryModel.getItems().get(0).getValue();
 
         assertEquals(987.65, newValue);
     }

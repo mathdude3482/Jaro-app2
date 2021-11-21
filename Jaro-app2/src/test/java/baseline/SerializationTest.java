@@ -75,7 +75,7 @@ class SerializationTest {
         serialization.saveTSV(toSave.getPath());
         serialization.loadTSV(toSave);
 
-        assertEquals(3, inventoryModel.getItem().size());
+        assertEquals(3, inventoryModel.getItems().size());
     }
 
     @Test
@@ -94,9 +94,9 @@ class SerializationTest {
         serialization.saveTSV(toSave.getPath());
         serialization.loadTSV(toSave);
 
-        assertEquals("Item 1", inventoryModel.getItem().get(0).getName());
-        assertEquals("AAAAAAAAAA", inventoryModel.getItem().get(0).getSerial());
-        assertEquals(123.45, inventoryModel.getItem().get(0).getValue());
+        assertEquals("Item 1", inventoryModel.getItems().get(0).getName());
+        assertEquals("AAAAAAAAAA", inventoryModel.getItems().get(0).getSerialNumber());
+        assertEquals(123.45, inventoryModel.getItems().get(0).getValue());
     }
 
     @Test
@@ -115,9 +115,9 @@ class SerializationTest {
         serialization.saveTSV(toSave.getPath());
         serialization.loadTSV(toSave);
 
-        assertEquals("Item 2", inventoryModel.getItem().get(1).getName());
-        assertEquals("BBBBBBBBBB", inventoryModel.getItem().get(1).getSerial());
-        assertEquals(987.65, inventoryModel.getItem().get(1).getValue());
+        assertEquals("Item 2", inventoryModel.getItems().get(1).getName());
+        assertEquals("BBBBBBBBBB", inventoryModel.getItems().get(1).getSerialNumber());
+        assertEquals(987.65, inventoryModel.getItems().get(1).getValue());
     }
 
     @Test
@@ -137,7 +137,7 @@ class SerializationTest {
         serialization.saveHTML(toSave.getPath());
         serialization.loadHTML(toSave);
 
-        assertEquals(3, inventoryModel.getItem().size());
+        assertEquals(3, inventoryModel.getItems().size());
     }
 
     @Test
@@ -156,9 +156,9 @@ class SerializationTest {
         serialization.saveHTML(toSave.getPath());
         serialization.loadHTML(toSave);
 
-        assertEquals("Item 1", inventoryModel.getItem().get(0).getName());
-        assertEquals("AAAAAAAAAA", inventoryModel.getItem().get(0).getSerial());
-        assertEquals(123.45, inventoryModel.getItem().get(0).getValue());
+        assertEquals("Item 1", inventoryModel.getItems().get(0).getName());
+        assertEquals("AAAAAAAAAA", inventoryModel.getItems().get(0).getSerialNumber());
+        assertEquals(123.45, inventoryModel.getItems().get(0).getValue());
     }
 
     @Test
@@ -177,9 +177,9 @@ class SerializationTest {
         serialization.saveHTML(toSave.getPath());
         serialization.loadHTML(toSave);
 
-        assertEquals("Item 2", inventoryModel.getItem().get(1).getName());
-        assertEquals("BBBBBBBBBB", inventoryModel.getItem().get(1).getSerial());
-        assertEquals(987.65, inventoryModel.getItem().get(1).getValue());
+        assertEquals("Item 2", inventoryModel.getItems().get(1).getName());
+        assertEquals("BBBBBBBBBB", inventoryModel.getItems().get(1).getSerialNumber());
+        assertEquals(987.65, inventoryModel.getItems().get(1).getValue());
     }
 
     @Test
@@ -199,7 +199,7 @@ class SerializationTest {
         serialization.saveJSON(toSave.getPath());
         serialization.loadJSON(toSave);
 
-        assertEquals(3, inventoryModel.getItem().size());
+        assertEquals(3, inventoryModel.getItems().size());
     }
 
     @Test
@@ -218,9 +218,9 @@ class SerializationTest {
         serialization.saveJSON(toSave.getPath());
         serialization.loadJSON(toSave);
 
-        assertEquals("Item 1", inventoryModel.getItem().get(0).getName());
-        assertEquals("AAAAAAAAAA", inventoryModel.getItem().get(0).getSerial());
-        assertEquals(123.45, inventoryModel.getItem().get(0).getValue());
+        assertEquals("Item 1", inventoryModel.getItems().get(0).getName());
+        assertEquals("AAAAAAAAAA", inventoryModel.getItems().get(0).getSerialNumber());
+        assertEquals(123.45, inventoryModel.getItems().get(0).getValue());
     }
 
     @Test
@@ -239,9 +239,9 @@ class SerializationTest {
         serialization.saveJSON(toSave.getPath());
         serialization.loadJSON(toSave);
 
-        assertEquals("Item 2", inventoryModel.getItem().get(1).getName());
-        assertEquals("BBBBBBBBBB", inventoryModel.getItem().get(1).getSerial());
-        assertEquals(987.65, inventoryModel.getItem().get(1).getValue());
+        assertEquals("Item 2", inventoryModel.getItems().get(1).getName());
+        assertEquals("BBBBBBBBBB", inventoryModel.getItems().get(1).getSerialNumber());
+        assertEquals(987.65, inventoryModel.getItems().get(1).getValue());
     }
 
     @Test
@@ -254,7 +254,7 @@ class SerializationTest {
 
         serialization.loadTSV(toLoad);
 
-        assertEquals(2, inventoryModel.getItem().size());
+        assertEquals(2, inventoryModel.getItems().size());
     }
 
     @Test
@@ -267,9 +267,9 @@ class SerializationTest {
 
         serialization.loadTSV(toLoad);
 
-        assertEquals("Item 1", inventoryModel.getItem().get(0).getName());
-        assertEquals("AAAAAAAAAA", inventoryModel.getItem().get(0).getSerial());
-        assertEquals(123.45, inventoryModel.getItem().get(0).getValue());
+        assertEquals("Item 1", inventoryModel.getItems().get(0).getName());
+        assertEquals("AAAAAAAAAA", inventoryModel.getItems().get(0).getSerialNumber());
+        assertEquals(123.45, inventoryModel.getItems().get(0).getValue());
     }
 
     @Test
@@ -282,9 +282,9 @@ class SerializationTest {
 
         serialization.loadTSV(toLoad);
 
-        assertEquals("Item 2", inventoryModel.getItem().get(1).getName());
-        assertEquals("BBBBBBBBBB", inventoryModel.getItem().get(1).getSerial());
-        assertEquals(987.65, inventoryModel.getItem().get(1).getValue());
+        assertEquals("Item 2", inventoryModel.getItems().get(1).getName());
+        assertEquals("BBBBBBBBBB", inventoryModel.getItems().get(1).getSerialNumber());
+        assertEquals(987.65, inventoryModel.getItems().get(1).getValue());
     }
 
     @Test
@@ -297,7 +297,7 @@ class SerializationTest {
 
         serialization.loadHTML(toLoad);
 
-        assertEquals(2, inventoryModel.getItem().size());
+        assertEquals(2, inventoryModel.getItems().size());
     }
 
     @Test
@@ -310,9 +310,9 @@ class SerializationTest {
 
         serialization.loadHTML(toLoad);
 
-        assertEquals("Item 1", inventoryModel.getItem().get(0).getName());
-        assertEquals("AAAAAAAAAA", inventoryModel.getItem().get(0).getSerial());
-        assertEquals(123.45, inventoryModel.getItem().get(0).getValue());
+        assertEquals("Item 1", inventoryModel.getItems().get(0).getName());
+        assertEquals("AAAAAAAAAA", inventoryModel.getItems().get(0).getSerialNumber());
+        assertEquals(123.45, inventoryModel.getItems().get(0).getValue());
     }
 
     @Test
@@ -325,9 +325,9 @@ class SerializationTest {
 
         serialization.loadHTML(toLoad);
 
-        assertEquals("Item 2", inventoryModel.getItem().get(1).getName());
-        assertEquals("BBBBBBBBBB", inventoryModel.getItem().get(1).getSerial());
-        assertEquals(987.65, inventoryModel.getItem().get(1).getValue());
+        assertEquals("Item 2", inventoryModel.getItems().get(1).getName());
+        assertEquals("BBBBBBBBBB", inventoryModel.getItems().get(1).getSerialNumber());
+        assertEquals(987.65, inventoryModel.getItems().get(1).getValue());
     }
 
     @Test
@@ -340,7 +340,7 @@ class SerializationTest {
 
         serialization.loadJSON(toLoad);
 
-        assertEquals(2, inventoryModel.getItem().size());
+        assertEquals(2, inventoryModel.getItems().size());
     }
 
     @Test
@@ -353,9 +353,9 @@ class SerializationTest {
 
         serialization.loadJSON(toLoad);
 
-        assertEquals("Item 1", inventoryModel.getItem().get(0).getName());
-        assertEquals("AAAAAAAAAA", inventoryModel.getItem().get(0).getSerial());
-        assertEquals(123.45, inventoryModel.getItem().get(0).getValue());
+        assertEquals("Item 1", inventoryModel.getItems().get(0).getName());
+        assertEquals("AAAAAAAAAA", inventoryModel.getItems().get(0).getSerialNumber());
+        assertEquals(123.45, inventoryModel.getItems().get(0).getValue());
     }
 
     @Test
@@ -368,8 +368,8 @@ class SerializationTest {
 
         serialization.loadJSON(toLoad);
 
-        assertEquals("Item 2", inventoryModel.getItem().get(1).getName());
-        assertEquals("BBBBBBBBBB", inventoryModel.getItem().get(1).getSerial());
-        assertEquals(987.65, inventoryModel.getItem().get(1).getValue());
+        assertEquals("Item 2", inventoryModel.getItems().get(1).getName());
+        assertEquals("BBBBBBBBBB", inventoryModel.getItems().get(1).getSerialNumber());
+        assertEquals(987.65, inventoryModel.getItems().get(1).getValue());
     }
 }

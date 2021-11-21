@@ -75,9 +75,9 @@ public class AddItemController {
     }
     public void addItem(String name, String serialNumber, double value) {
         //create a new inventory item with the parameters.
-        Inventory newItem = new Inventory(name, serialNumber, value);
+        InventoryItem newItem = new InventoryItem(name, serialNumber, value);
         //add the item.
-        inventoryModel.getItem().add(newItem);
+        inventoryModel.getItems().add(newItem);
     }
 
     private void showError(String contextText) {

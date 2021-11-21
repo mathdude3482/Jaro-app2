@@ -20,7 +20,7 @@ class InventoryControllerTest {
 
         ic.removeItem(0);
 
-        assertEquals(0, im.getItem().size());
+        assertEquals(0, im.getItems().size());
     }
 
     @Test
@@ -38,7 +38,7 @@ class InventoryControllerTest {
         aic.addItem("Test5", "XXXXXXXXXX", 123.45);
         ic.removeItem(2);
         String expected = "Test4";
-        String actual = im.getItem().get(2).getName();
+        String actual = im.getItems().get(2).getName();
         assertEquals(expected, actual);
     }
 }

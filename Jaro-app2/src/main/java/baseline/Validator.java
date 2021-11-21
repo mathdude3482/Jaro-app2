@@ -73,10 +73,10 @@ public class Validator {
 
     public boolean isUniqueSerialNumber(String serialNumber) {
         //check if the serial number is unique.
-        for (int i = 0; i < myInventory.getItem().size(); i++) {
+        for (int i = 0; i < myInventory.getItems().size(); i++) {
             if (i != myInventory.getEditIndex()) {
                 //if the parameter matches the serial number at the specified index, return false.
-                if (serialNumber.equalsIgnoreCase(myInventory.getItem().get(i).getSerial())) {
+                if (serialNumber.equalsIgnoreCase(myInventory.getItems().get(i).getSerialNumber())) {
                     return false;
                 }
             }
