@@ -18,7 +18,7 @@ public class SceneManager {
         InventoryModel inventoryModel = new InventoryModel();
         InventoryController inventoryController = new InventoryController();
         AddItemController addItemController = new AddItemController(inventoryModel, this);
-        EditItemController editItemController = new EditItemController();
+        EditItemController editItemController = new EditItemController(inventoryModel, this);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("InventoryController.fxml"));
         loader.setController(inventoryController);

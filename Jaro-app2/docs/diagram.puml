@@ -26,10 +26,20 @@ class AddItemController{
     - cancel(): void
 }
 class EdititemController{
-+ editClicked(): void
-+ cancelClicked(): void
-+ checkEdit(): boolean
-- cancel(): void
+    + gridPane: GridPane
+    + nameDisplay: TextField
+    + valueDisplay: TextField
+    + serialDisplay: TextField
+    - myInventory: InventoryModel
+    - sceneManager: SceneManager
+    + EditItemController(InventoryModel, SceneManager)
+    + initialize(): void
+    + editClicked(MouseEvent): void
+    + cancelClicked(MouseEvent): void
+    + editItem(String, String, String): void
+    + isValidEdit(String, String, String): Boolean
+    - showError(String): void
+    - cancel(): void
 }
 
 class InventoryController{
