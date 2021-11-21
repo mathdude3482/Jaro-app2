@@ -15,8 +15,9 @@ public class SceneManager {
     public void load() {
         //load the scene.
         //edit the constructors.
+        InventoryModel inventoryModel = new InventoryModel();
         InventoryController inventoryController = new InventoryController();
-        AddItemController addItemController = new AddItemController();
+        AddItemController addItemController = new AddItemController(inventoryModel, this);
         EditItemController editItemController = new EditItemController();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("InventoryController.fxml"));

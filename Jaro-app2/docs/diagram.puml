@@ -10,10 +10,20 @@ class SceneManager {
     - loadScene(String, FXMLLoader): void
 }
 class AddItemController{
-+ addClicked(): void
-+ cancelClicked(): void
-+ checkItem(): boolean
-- cancel(): void
+    + gridPane: GridPane
+    + nameDisplay: TextField
+    + valueDisplay: TextField
+    + serialDisplay: TextField
+    - inventoryModel: InventoryModel
+    - sceneManager: SceneManager
+    + AddItemController(InventoryModel, SceneManager)
+    + initialize(): void
+    + addClicked(MouseEvent): void
+    + cancelClicked(MouseEvent): void
+    + checkValid(): Boolean
+    + addItem(String, String, Double): void
+    - showError(String): void
+    - cancel(): void
 }
 class EdititemController{
 + editClicked(): void
