@@ -52,19 +52,19 @@ class InventoryController{
     - inventoryModel: InventoryModel
     - sceneManager: SceneManager
 
-    + InventoryController(InventoryModel, SceneManager)
-    + initialize()
-    + addItemClicked(MouseEvent)
-    + removeItemClicked(MouseEvent)
-    + editItemClicked(MouseEvent)
-    + saveClicked(ActionEvent)
-    + loadClicked(ActionEvent)
-    + closeClicked(ActionEvent)
-    + removeItem(Integer)
+    + InventoryController(InventoryModel, SceneManager): void
+    + initialize(): void
+    + addItemClicked(MouseEvent): void
+    + removeItemClicked(MouseEvent): void
+    + editItemClicked(MouseEvent): void
+    + saveClicked(ActionEvent): void
+    + loadClicked(ActionEvent): void
+    + closeClicked(ActionEvent): void
+    + removeItem(Integer): void
     - openNewController(String, String)
     - openSaveFileChooser(): File
     - openLoadFileChooser(): File
-    - close()
+    - close(): void
 }
 class Inventory{
  - value: Double
@@ -116,5 +116,4 @@ class Serialization {
     + loadHTML(File)
     + loadJSON(File)
 }
-
 @enduml

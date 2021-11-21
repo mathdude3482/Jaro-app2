@@ -67,24 +67,19 @@ public class EditItemController {
         //if at any point a part is invalid, return false.
         //otherwise, return true.
         Validator validator = new Validator(myInventory);
-        if (!name.isEmpty()) {
-            if (!validator.isValidName(name)) {
-                showError("An item's name must be between 2 and 256 characters (inclusive).");
+        if (!name.isEmpty() && !validator.isValidName(name)) {
+                showError("An item's name must be between 2 and 256 characters " +
+                        "\n" + "(inclusive).");
                 return false;
-            }
         }
-        if (!serialNumber.isEmpty()) {
-            if (!validator.isValidSerial(serialNumber)) {
+        if (!serialNumber.isEmpty() && !validator.isValidSerial(serialNumber)) {
                 showError("An item's serial number must be unique and in the format " + "\n"
                         + "X-XXX-XXX-XXX and consist of only letters and digits.");
                 return false;
-            }
         }
-        if (!value.isEmpty()) {
-            if (!validator.isValidValue(value)) {
+        if (!value.isEmpty() && !validator.isValidValue(value)) {
                 showError("An item's value must represent a monetary value in US dollars.");
                 return false;
-            }
         }
         return true;
     }

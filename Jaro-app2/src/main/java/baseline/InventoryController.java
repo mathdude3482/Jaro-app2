@@ -42,13 +42,10 @@ public class InventoryController {
     @FXML
     public void initialize() {
         gridPane.getStyleClass().add("grid-pane");
-
         nameDisplay.prefWidthProperty().bind(itemTable.widthProperty().subtract(valueDisplay.widthProperty().add(serialDisplay.widthProperty().add(2))));
-
         nameDisplay.setCellValueFactory(new PropertyValueFactory<>("name"));
         serialDisplay.setCellValueFactory(new PropertyValueFactory<>("serialNumber"));
         valueDisplay.setCellValueFactory(new PropertyValueFactory<>("value"));
-
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         valueDisplay.setCellFactory(tableColumn -> new TableCell<InventoryItem, Double>() {
             @Override
@@ -62,16 +59,14 @@ public class InventoryController {
             }
         });
 
+        //implementing the search bar...
         FilteredList<InventoryItem> filteredList = new FilteredList<>(inventoryModel.getItems(), p-> true);
-
         searchField.textProperty().addListener(((observable, oldValue, newValue) -> {
             filteredList.setPredicate(inventoryItem -> {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
-
                 String lowerCaseFilter = newValue.toLowerCase();
-
                 if (inventoryItem.getName().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 } else if (inventoryItem.getSerialNumber().toLowerCase().contains(lowerCaseFilter)) {
@@ -82,21 +77,20 @@ public class InventoryController {
             });
         }));
         SortedList<InventoryItem> sortedList = new SortedList<>(filteredList);
-
         sortedList.comparatorProperty().bind(itemTable.comparatorProperty());
-
         itemTable.setItems(sortedList);
     }
 
     @FXML
     public void addItemClicked(MouseEvent mouseEvent) {
+        //Open a new controller that allows the user to add a new item.
         openNewController("Add New Item", "AddItemController");
     }
 
     @FXML
     public void removeItemClicked(MouseEvent mouseEvent) {
+        //this method will remove the item selected.
         int currentIndex = itemTable.getSelectionModel().getSelectedIndex();
-
         if (currentIndex != -1) {
             removeItem(currentIndex);
         }
@@ -104,11 +98,10 @@ public class InventoryController {
 
     @FXML
     public void editItemClicked(MouseEvent mouseEvent) {
+        //this method will allow the user to open up another GUI to edit an item's description.
         if (itemTable.getSelectionModel().getSelectedIndex() != -1) {
             inventoryModel.setEditIndex(itemTable.getSelectionModel().getSelectedIndex());
-
             openNewController("Edit Item", "EditItemController");
-
             itemTable.refresh();
             inventoryModel.setEditIndex(-1);
         }
@@ -116,9 +109,11 @@ public class InventoryController {
 
     @FXML
     public void saveClicked(ActionEvent actionEvent) {
+        //this method will allow the user to save the file.
+        //create an instance of the Serialization class.
         Serialization serialization = new Serialization(inventoryModel);
         File saveFile = openSaveFileChooser();
-
+        //if the name of the file is not empty, save it.
         if (saveFile != null) {
             serialization.save(saveFile);
         }
@@ -126,9 +121,11 @@ public class InventoryController {
 
     @FXML
     public void loadClicked(ActionEvent actionEvent) {
+        //this method will allow the user to load the file.
+        //Create an instance of the Serialization class.
         Serialization serialization = new Serialization(inventoryModel);
         File loadFile = openLoadFileChooser();
-
+        //if the name of the file is not empty, load it.
         if (loadFile != null) {
             serialization.load(loadFile);
         }
@@ -136,6 +133,7 @@ public class InventoryController {
 
     @FXML
     public void closeClicked(ActionEvent actionEvent) {
+        //close the GUI.
         close();
     }
 
@@ -156,10 +154,9 @@ public class InventoryController {
     }
 
     private File openSaveFileChooser() {
+        //allow the user to choose either a HTML file, a TSV file, or a JSON file to save the list.
         FileChooser fileChooser = new FileChooser();
-
         Stage stage = new Stage();
-
         fileChooser.setInitialDirectory(new File("C://"));
         fileChooser.setInitialFileName("ItemInventory");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("HTML File", "*.html"));
@@ -170,10 +167,9 @@ public class InventoryController {
     }
 
     private File openLoadFileChooser() {
+        //allow the user to load either a HTML file, a TSV file, or a JSON file.
         FileChooser fileChooser = new FileChooser();
-
         Stage stage = new Stage();
-
         fileChooser.setInitialDirectory(new File("C://"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("HTML File", "*.html"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("TSV File", "*.txt"));
@@ -183,8 +179,8 @@ public class InventoryController {
     }
 
     private void close() {
+        //close the GUI.
         Stage toClose = (Stage) gridPane.getScene().getWindow();
-
         toClose.close();
     }
 }

@@ -57,7 +57,8 @@ public class AddItemController {
         Validator validator = new Validator(inventoryModel);
         //check if the name is valid.
         if (!validator.isValidName(nameDisplay.getText().trim())) {
-            showError("An item's name must be between 2 and 256 characters (inclusive).");
+            showError("An item's name must be between 2 and 256 characters " +
+                    "\n" + "(inclusive).");
             return false;
         }
         //check if the serial number is valid.
