@@ -55,5 +55,18 @@ class SceneManager {
     + getScene(String): Scene
     - loadScene(String, FXMLLoader): void
 }
+class Validator{
+    - myInventory: InventoryModel
+    + Validator(InventoryModel)
+    + isValidSerial(String): Boolean
+    + isValidName(String): Boolean
+    + isValidValue(String): Boolean
+    + isValidSerialLength(String): Boolean
+    + isValidSerialCharacters(String): Boolean
+    + isUniqueSerialNumber(String): Boolean
+    + isValidNameLength(String): Boolean
+    + isValidNumericValue(String): Boolean
+    + isValidUSValue(String): Boolean
+}
 
 @enduml
