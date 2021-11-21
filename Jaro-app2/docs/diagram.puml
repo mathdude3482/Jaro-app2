@@ -1,7 +1,13 @@
 @startuml
 class InventoryManagementApplication{
 +main()
-+start()
++start(Stage)
+}
+class SceneManager {
+    - scenes: Map<String, Scene>
+    + load(): void
+    + getScene(String): Scene
+    - loadScene(String, FXMLLoader): void
 }
 class AddItemController{
 + addClicked(): void
@@ -15,6 +21,7 @@ class EdititemController{
 + checkEdit(): boolean
 - cancel(): void
 }
+
 class InventoryController{
 + addItemClicked(): void
 + closeClicked(): void
@@ -49,12 +56,6 @@ class InventoryModel{
     + setEditIndex(int): void
     + getEditIndex(): int
 }
-class SceneManager {
-    - scenes: Map<String, Scene>
-    + load(): void
-    + getScene(String): Scene
-    - loadScene(String, FXMLLoader): void
-}
 class Validator{
     - myInventory: InventoryModel
     + Validator(InventoryModel)
@@ -67,6 +68,17 @@ class Validator{
     + isValidNameLength(String): Boolean
     + isValidNumericValue(String): Boolean
     + isValidUSValue(String): Boolean
+}
+class Serialization {
+    - myInventory: InventoryModel
+    + save(File)
+    + saveTSV(String)
+    + saveHTML(String)
+    + saveJSON(String)
+    + load(File)
+    + loadTSV(File)
+    + loadHTML(File)
+    + loadJSON(File)
 }
 
 @enduml

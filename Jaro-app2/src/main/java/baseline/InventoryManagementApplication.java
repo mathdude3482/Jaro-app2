@@ -18,7 +18,6 @@ public class InventoryManagementApplication extends Application {
         SceneManager myScene = new SceneManager();
         //call the load method.
         myScene.load();
-
         primaryStage.setScene(myScene.getScene("InventoryController"));
         primaryStage.setTitle("Inventory Manager");
         primaryStage.show();
