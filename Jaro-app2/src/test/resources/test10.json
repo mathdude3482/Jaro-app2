@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "name": "Item 1",
+      "serialNumber": "AAAAAAAAAA",
+      "value": 123.45
+    },
+    {
+      "name": "Item 2",
+      "serialNumber": "BBBBBBBBBB",
+      "value": 987.65
+    },
+    {
+      "name": "Item 3",
+      "serialNumber": "CCCCCCCCCC",
+      "value": 345.67
+    }
+  ]
+}
