@@ -25,7 +25,7 @@ class AddItemController{
     - showError(String): void
     - cancel(): void
 }
-class EdititemController{
+class EditItemController{
     + gridPane: GridPane
     + nameDisplay: TextField
     + valueDisplay: TextField
@@ -66,7 +66,7 @@ class InventoryController{
     - openLoadFileChooser(): File
     - close(): void
 }
-class Inventory{
+class InventoryItem{
  - value: Double
  - serialNumber: String
  - name: String
@@ -116,4 +116,21 @@ class Serialization {
     + loadHTML(File)
     + loadJSON(File)
 }
+javafx.Application <|-- InventoryManagementApplication
+InventoryManagementApplication -- SceneManager
+SceneManager --* InventoryController
+SceneManager --* AddItemController
+SceneManager --* EditItemController
+InventoryController -- Serialization
+InventoryController *-- InventoryModel
+InventoryController -down- AddItemController
+InventoryController -down- EditItemController
+AddItemController *-- InventoryModel
+AddItemController -- Validator
+EditItemController *-- InventoryModel
+EditItemController -- Validator
+InventoryModel *-- InventoryItem
+Validator *- InventoryModel
+Serialization *- InventoryModel
+Serialization -- InventoryObject
 @enduml

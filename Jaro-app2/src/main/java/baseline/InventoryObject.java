@@ -8,7 +8,6 @@ import java.util.List;
 
 public class InventoryObject {
     private List<InventoryItem> items = new ArrayList<>();
-
     //get the list of items.
     public List<InventoryItem> getItems() {
         return items;
